@@ -1,6 +1,6 @@
 /*
 
-first java program
+Программа вывода в консоль Hello world
 by SmirnovSM
 04.09.2021
 
