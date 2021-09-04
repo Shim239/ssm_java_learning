@@ -1,7 +1,8 @@
 /*
 
 first java program
-by SmirnovSM on 04.09.2021
+by SmirnovSM
+04.09.2021
 
  */
 
