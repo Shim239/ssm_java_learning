@@ -57,8 +57,10 @@ public class Lesson2 {
 
     }
         for (int i = 0; i < age.length; i++) {
+
+            // для вывода мужчин изменить true/false
             if (!gender[i]) {
-                System.out.println(fio[i] + ", " + age[i] + " лет");
+                System.out.println(fio[i] + ", Возраст: " + age[i] + " лет");
             }
         }
 }
