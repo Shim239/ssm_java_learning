@@ -9,13 +9,11 @@ on 12.09.2021
 
  */
 
-import java.util.Arrays;
-
 public class Lesson2 {
     public static void main(String[] args) {
 
         // задаем значения в массивах
-        int[] age = new int[]{18,5,69,74,21,78,45,18,22,54};
+        int[] age = new int[]{7,18,69,74,21,78,45,18,22,54};
 
         boolean [] gender = new boolean[]{true,false,false,false,true,true,false,false,true,true};
 
