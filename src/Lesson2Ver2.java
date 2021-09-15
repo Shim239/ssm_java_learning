@@ -1,3 +1,17 @@
+/*
+
+Lesson2_JavaLearning_BSPB
+by Smirnov SM
+on 15.09.2021
+
+В коде заданы параметры десяти клиентов
+Программа выводит всех женщин с сортировкой по возрасту
+
+ver2 с двумерными массивами
+
+ */
+
+
 import java.util.Arrays;
 
 public class Lesson2Ver2 {
@@ -10,9 +24,9 @@ public class Lesson2Ver2 {
                 {"34", "Isabelle", "female"},
                 {"62", "Agatha", "female"},
                 {"47", "Crispin", "male"},
-                {"53", "Piers", "male"},
+                {"48", "Piers", "male"},
                 {"48", "Nora", "female"},
-                {"29", "Ada", "female"}
+                {"48", "Ada", "female"}
         };
 
         // отделяем от двумерного массива возраста в отдельный массив
