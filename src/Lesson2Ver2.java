@@ -9,7 +9,7 @@ public class Lesson2Ver2 {
                 {"18", "Andrew", "male"},
                 {"18", "Isabelle", "female"},
                 {"62", "Agatha", "female"},
-                {"57", "Crispin", "male"},
+                {"57", "Crispin", "female"},
                 {"53", "Piers", "male"},
                 {"48", "Nora", "female"},
                 {"29", "Ada", "female"}
