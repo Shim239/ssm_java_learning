@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Lesson2_ver2 {
+public class Lesson2Ver2 {
     public static void main(String[] args) {
         String[][] clients = new String[][] {
                 {"25", "Ivan", "male"},
