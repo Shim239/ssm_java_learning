@@ -29,37 +29,43 @@ public class Lesson2 {
         fio[8] = "Бобров Захар Александрович";
         fio[9] = "Зимин Михаил Максимович ";
 
-        System.out.println("Вывод только женщин, сортировка по возрасту!\n");
+        if (age.length == gender.length && fio.length == age.length) {
 
-        int temp_age = 0;
-        boolean temp_gender = false;
-        String temp_fio = "test";
+            System.out.println("Вывод только женщин, сортировка по возрасту!\n");
 
-        for (int i = 0; i < age.length; i++) {
-            for (int j = i+1; j < age.length; j++) {
-                if (age[i] > age[j]) {
-                    temp_age = age[i];
-                    age[i] = age[j];
-                    age[j] = temp_age;
+            int temp_age = 0;
+            boolean temp_gender = false;
+            String temp_fio = "test";
 
-                    temp_gender = gender[i];
-                    gender[i] = gender[j];
-                    gender[j] = temp_gender;
+            for (int i = 0; i < age.length; i++) {
+                for (int j = i + 1; j < age.length; j++) {
+                    if (age[i] > age[j]) {
+                        temp_age = age[i];
+                        age[i] = age[j];
+                        age[j] = temp_age;
 
-                    temp_fio = fio[i];
-                    fio[i] = fio[j];
-                    fio[j] = temp_fio;
+                        temp_gender = gender[i];
+                        gender[i] = gender[j];
+                        gender[j] = temp_gender;
+
+                        temp_fio = fio[i];
+                        fio[i] = fio[j];
+                        fio[j] = temp_fio;
+                    }
                 }
-        }
 
 
-    }
-        for (int i = 0; i < age.length; i++) {
-
-            // для вывода мужчин изменить true/false
-            if (!gender[i]) {
-                System.out.println(fio[i] + ", Возраст: " + age[i] + " лет");
             }
+            for (int i = 0; i < age.length; i++) {
+
+                // для вывода мужчин изменить true/false
+                if (!gender[i]) {
+                    System.out.println(fio[i] + ", Возраст: " + age[i] + " лет");
+                }
+            }
+        }
+        else {
+            System.out.println("Некорректный ввод! Необходимо указать равное количество параметров клиентов (элементов) во всех массивах!");
         }
 }
 }
