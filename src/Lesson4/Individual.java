@@ -27,4 +27,13 @@ public class Individual extends Customer {
         this.birthYear = birthYear;
         this.gender = gender;
     }
+
+    @Override
+    public String toString() {
+        return "Individual{" +
+                "birthYear=" + birthYear +
+                ", gender=" + gender +
+                '}';
+    }
+
 }

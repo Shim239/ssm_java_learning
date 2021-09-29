@@ -17,4 +17,11 @@ public class Entity extends Customer{
         super(id, name, inn);
         this.ogrn = ogrn;
     }
+
+    @Override
+    public String toString() {
+        return "Entity{" +
+                "ogrn='" + ogrn + '\'' +
+                '}';
+    }
 }

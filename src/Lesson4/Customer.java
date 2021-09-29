@@ -2,6 +2,8 @@
 
 package Lesson4;
 
+import java.util.Objects;
+
 public class Customer {
     private int id; // ИД записи
     private String name; // Название компании / ФИО клиента
@@ -36,4 +38,14 @@ public class Customer {
         this.name = name;
         this.inn = inn;
     }
+
+    @Override
+    public String toString() {
+        return "Customer {" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", inn='" + inn + '\'' +
+                '}';
+    }
+
 }
