@@ -15,6 +15,7 @@ package Lesson4;
 public class Lesson4 {
 
     public static void main(String[] args) {
-
+    Clients[] array = new Clients[20];
+    array[0] = Clients.customer1;
     }
 }

@@ -22,10 +22,4 @@ public class Clients {
     Entity customer18 = new Entity(18, "OOO Tsvetok", "3491435623", "2790491988559");
     Entity customer20 = new Entity(20, "OOO Kubik", "9181714586", "0516714466301");
 
-    @Override
-    public String toString() {
-        return "Clients{" +
-                "customer1=" + customer1 +
-                '}';
-    }
 }
