@@ -4,7 +4,8 @@ package Lesson4;
 
 public class Individual extends Customer {
     private int birthYear; // год рождения ФЛ
-    private char gender; // пол ФЛ
+    private String gender; // пол ФЛ
+    private String fio; // name
 
     public int getBirthYear() {
         return birthYear;
@@ -14,26 +15,36 @@ public class Individual extends Customer {
         this.birthYear = birthYear;
     }
 
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
-    public Individual(int id, String name, String inn, int birthYear, char gender) {
-        super(id, name, inn);
+    public String getFio() {
+        return fio;
+    }
+
+    public void setFio(String fio) {
+        this.fio = fio;
+    }
+
+    public Individual(int id, String fio, String inn, int birthYear, String gender) {
+        super(id, inn);
+        this.fio = fio;
         this.birthYear = birthYear;
         this.gender = gender;
+
     }
 
     @Override
     public String toString() {
-        return "Individual{" +
-                "birthYear=" + birthYear +
-                ", gender=" + gender +
-                '}';
+        return "ФЛ: " +
+                "Имя= " + fio +
+                ", год рождения= " + birthYear +
+                ", пол= " + gender;
     }
 
 }
