@@ -27,6 +27,7 @@ public abstract class Customer {
         this.inn = inn;
     }
 
+
     @Override
     public String toString() {
         return "Customer {" +

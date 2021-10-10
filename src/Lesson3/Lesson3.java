@@ -10,6 +10,8 @@ ver 1.0
 
  */
 
+package Lesson3;
+
 import java.util.Arrays;
 import java.util.Locale;
 

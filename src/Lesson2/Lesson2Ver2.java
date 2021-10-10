@@ -11,6 +11,7 @@ ver2 с двумерными массивами
 
  */
 
+package Lesson2;
 
 import java.util.Arrays;
 
