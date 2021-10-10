@@ -4,6 +4,15 @@ import java.util.Random;
 
 public class IndividualGenerator implements CustomerGenerator {
 
+    @Override
+    public Customer generateCustomer(int id) {
+        String fio = createIndFio();
+        String inn = createIndInn();
+        int birthYear = createIndBirthYear();
+        String gender = createIndGender();
+        return new Individual(id, fio, inn, birthYear, gender);
+    }
+
     public String createIndFio() {
         int leftLimit = 97; // letter 'a'
         int rightLimit = 122; // letter 'z'
@@ -43,15 +52,6 @@ public class IndividualGenerator implements CustomerGenerator {
         if(Math.random() > 0.5) gender  = "MALE";
         else gender = "FEMALE";
         return gender;
-    }
-
-    @Override
-    public Customer generateCustomer(int id) {
-        String fio = createIndFio();
-        String inn = createIndInn();
-        int birthYear = createIndBirthYear();
-        String gender = createIndGender();
-        return new Individual(id, fio, inn, birthYear, gender);
     }
 }
 

@@ -4,20 +4,26 @@ import java.util.Random;
 
 public class EntityGenerator implements CustomerGenerator {
 
-    /*
-
     // отсюда не мое
     Customer[] customersEntity = null;
 
-    public void createEntityArray(int countCustomer) {
-        customersEntity = new Customer[countCustomer];
+    public void createEntityArray(int entityCount) {
+        customersEntity = new Customer[entityCount];
 
-        for (int i = 0; i < countCustomer; i++) {
+        for (int i = 0; i < entityCount; i++) {
             customersEntity[i] = generateCustomer(i);
         }
     }
     // до сюда
-*/
+
+
+    @Override
+    public Customer generateCustomer(int id) {
+        String name = createEntityName();
+        String inn = createEntityInn();
+        String ogrn = createEntityOgrn();
+        return new Entity(id, name, inn, ogrn);
+    }
 
     public String createEntityName() {
         int leftLimit = 97; // letter 'a'
@@ -64,15 +70,7 @@ public class EntityGenerator implements CustomerGenerator {
         return generatedString;
     }
 
-    @Override
-    public Customer generateCustomer(int id) {
-        String name = createEntityName();
-        String inn = createEntityInn();
-        String ogrn = createEntityOgrn();
-        return new Entity(id, name, inn, ogrn);
-    }
-
-    @Override
+/*    @Override
     public String toString() {
         return "Entity{" +
                 "id='" + id + '\'' +
@@ -80,7 +78,7 @@ public class EntityGenerator implements CustomerGenerator {
                 "inn='" + inn + '\'' +
                 "ogrn='" + ogrn + '\'' +
                 '}';
-    }
+    }*/
 
 }
 

@@ -6,6 +6,11 @@ public abstract class Customer {
     private int id; // ИД записи
     private String inn; // ИНН ФЛ/ЮЛ
 
+    public Customer(int id, String inn) {
+        this.id = id;
+        this.inn = inn;
+    }
+
     public int getId() {
         return id;
     }
@@ -22,10 +27,7 @@ public abstract class Customer {
         this.inn = inn;
     }
 
-    public Customer(int id, String inn) {
-        this.id = id;
-        this.inn = inn;
-    }
+
 
 
     @Override

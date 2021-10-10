@@ -9,18 +9,31 @@ ver 1.0
 
  */
 
-
 package Lesson5;
+
+import java.util.Arrays;
 
 public class Lesson5 {
 
     public static void main(String[] args) {
 
-        EntityGenerator[] entityGenerator = new EntityGenerator[1];
-        entityGenerator[0] = new EntityGenerator();
-        entityGenerator[0].generateCustomer(1);
 
-        System.out.println(entityGenerator[0].toString());
+/*
+
+        EntityGenerator[] entityArray = new EntityGenerator[1];
+        entityArray[0] = new EntityGenerator();
+        entityArray[0].generateCustomer(1);
+
+        System.out.println(entityArray[0]);
+        //System.out.println(Arrays.toString(entityArray[0]));
+*/
+
+
+        EntityGenerator entityArray = new EntityGenerator();
+        entityArray.createEntityArray(1);
+
+        System.out.println(Arrays.toString(entityArray[0]));
+
 
     }
 }
