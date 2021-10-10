@@ -4,6 +4,16 @@ import java.util.Random;
 
 public class IndividualGenerator implements CustomerGenerator {
 
+    Customer[] customersIndividual = null;
+
+    public void createIndividualArray(int individualCount) {
+        customersIndividual = new Customer[individualCount];
+
+        for (int i = 0; i < individualCount; i++) {
+            customersIndividual[i] = generateCustomer(i);
+        }
+    }
+
     @Override
     public Customer generateCustomer(int id) {
         String fio = createIndFio();

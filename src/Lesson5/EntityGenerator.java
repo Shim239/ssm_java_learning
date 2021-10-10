@@ -4,7 +4,6 @@ import java.util.Random;
 
 public class EntityGenerator implements CustomerGenerator {
 
-    // отсюда не мое
     Customer[] customersEntity = null;
 
     public void createEntityArray(int entityCount) {
@@ -14,7 +13,6 @@ public class EntityGenerator implements CustomerGenerator {
             customersEntity[i] = generateCustomer(i);
         }
     }
-    // до сюда
 
 
     @Override
