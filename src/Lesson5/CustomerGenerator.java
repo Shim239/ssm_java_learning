@@ -1,7 +1,7 @@
 package Lesson5;
 
 public interface CustomerGenerator {
-    Customer generateCustomer(int id);
+    Customer generateCustomer();
 }
 
 // Интерфейс генерации клиентов, содержащий в себе

@@ -2,14 +2,8 @@
 
 package Lesson5;
 
-public abstract class Customer {
+public class Customer {
     private int id; // ИД записи
-    private String inn; // ИНН ФЛ/ЮЛ
-
-    public Customer(int id, String inn) {
-        this.id = id;
-        this.inn = inn;
-    }
 
     public int getId() {
         return id;
@@ -17,25 +11,6 @@ public abstract class Customer {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getInn() {
-        return inn;
-    }
-
-    public void setInn(String inn) {
-        this.inn = inn;
-    }
-
-
-
-
-    @Override
-    public String toString() {
-        return "Customer {" +
-                "id=" + id +
-                ", inn='" + inn + '\'' +
-                '}';
     }
 
 }

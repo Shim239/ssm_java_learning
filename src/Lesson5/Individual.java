@@ -2,10 +2,13 @@
 
 package Lesson5;
 
-public class Individual extends Customer {
+import java.util.Comparator;
+
+public class Individual extends Customer implements Comparable<Individual> {
     private int birthYear; // год рождения ФЛ
-    private String gender; // пол ФЛ
+    private CustomerGender gender; // пол ФЛ
     private String fio; // name
+    private String inn;
 
     public int getBirthYear() {
         return birthYear;
@@ -15,11 +18,11 @@ public class Individual extends Customer {
         this.birthYear = birthYear;
     }
 
-    public String getGender() {
+    public CustomerGender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(CustomerGender gender) {
         this.gender = gender;
     }
 
@@ -31,20 +34,27 @@ public class Individual extends Customer {
         this.fio = fio;
     }
 
-    public Individual(int id, String fio, String inn, int birthYear, String gender) {
-        super(id, inn);
-        this.fio = fio;
-        this.birthYear = birthYear;
-        this.gender = gender;
+    public String getInn() {
+        return inn;
+    }
 
+    public void setInn(String inn) {
+        this.inn = inn;
     }
 
     @Override
     public String toString() {
-        return "ФЛ: " +
-                "Имя= " + fio +
-                ", год рождения= " + birthYear +
-                ", пол= " + gender;
+        return "Клиент ФЛ: " +
+                "id=" + getId() + '\'' +
+                ", ФИО='" + fio + '\'' +
+                ", ИНН='" + inn + '\'' +
+                ", ГОД РОЖДЕНИЯ=" + birthYear + '\'' +
+                ", ПОЛ='" + gender + '\'';
     }
 
+    // компаратор сравнения годов рождения ФЛ
+    @Override
+    public int compareTo(Individual o) {
+        return (this.getBirthYear() - o.getBirthYear());
+    }
 }

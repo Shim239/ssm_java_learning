@@ -4,43 +4,38 @@ import java.util.Random;
 
 public class EntityGenerator implements CustomerGenerator {
 
-    Customer[] customersEntity = null;
-
-    public void createEntityArray(int entityCount) {
-        customersEntity = new Customer[entityCount];
-
-        for (int i = 0; i < entityCount; i++) {
-            customersEntity[i] = generateCustomer(i);
-        }
-    }
-
-
+    // блок генерации клиентов по данным
     @Override
-    public Customer generateCustomer(int id) {
-        String name = createEntityName();
-        String inn = createEntityInn();
-        String ogrn = createEntityOgrn();
-        return new Entity(id, name, inn, ogrn);
-    }
-
-    public String createEntityName() {
-        int leftLimit = 97; // letter 'a'
-        int rightLimit = 122; // letter 'z'
-        int targetStringLength = 15;
+    public Customer generateCustomer() {
         Random random = new Random();
-        StringBuilder buffer = new StringBuilder(targetStringLength);
-        for (int i = 0; i < targetStringLength; i++) {
-            int randomLimitedInt = leftLimit + (int)
-                    (random.nextFloat() * (rightLimit - leftLimit + 1));
-            buffer.append((char) randomLimitedInt);
-        }
-        String generatedString = buffer.toString();
-        return generatedString;
+        Entity entity = new Entity();
+        entity.setId(createEntityId());
+        entity.setName(ENTITY_NAMES[random.nextInt(ENTITY_NAMES.length)]);
+        entity.setInn(createEntityInn());
+        entity.setOgrn(createEntityOgrn());
+        return entity;
     }
 
+    // блок генерации данных
+    public int createEntityId() {
+        Random random = new Random();
+        return Math.abs(random.nextInt());
+    }
+
+    // массив для наименований ЮЛ
+    private static final String[] ENTITY_NAMES = {
+            "ООО Олимп",
+            "ООО МЭК",
+            "ООО СМАЙЛ",
+            "ООО РУССЕРВИС",
+            "ИП Бешанов Владимир Андреевич",
+            "ООО МЕДИАНА"
+    };
+
+    // нашел в интернете такой вот рандомайзер через char, мне понравился
     public String createEntityInn() {
-        int leftLimit = 0; // number '0'
-        int rightLimit = 9; // number '9'
+        int leftLimit = 48; // number '0'
+        int rightLimit = 57; // number '9'
         int targetStringLength = 10;
         Random random = new Random();
         StringBuilder buffer = new StringBuilder(targetStringLength);
@@ -54,9 +49,9 @@ public class EntityGenerator implements CustomerGenerator {
     }
 
     public String createEntityOgrn() {
-        int leftLimit = 0; // number '0'
-        int rightLimit = 9; // number '9'
-        int targetStringLength = 12;
+        int leftLimit = 48; // number '0'
+        int rightLimit = 57; // number '9'
+        int targetStringLength = 13;
         Random random = new Random();
         StringBuilder buffer = new StringBuilder(targetStringLength);
         for (int i = 0; i < targetStringLength; i++) {
@@ -67,46 +62,5 @@ public class EntityGenerator implements CustomerGenerator {
         String generatedString = buffer.toString();
         return generatedString;
     }
-
-/*    @Override
-    public String toString() {
-        return "Entity{" +
-                "id='" + id + '\'' +
-                "name='" + name + '\'' +
-                "inn='" + inn + '\'' +
-                "ogrn='" + ogrn + '\'' +
-                '}';
-    }*/
 
 }
-
-
- /*   private int createEntityId() {
-        return new Random().nextInt();
-    }
-
-    private String createEntityName() {
-        int leftLimit = 97; // letter 'a'
-        int rightLimit = 122; // letter 'z'
-        int targetStringLength = 10;
-        String type = "ООО";
-        Random random = new Random();
-        StringBuilder buffer = new StringBuilder(targetStringLength);
-        for (int i = 0; i < targetStringLength; i++) {
-            int randomLimitedInt = leftLimit + (int)
-                    (random.nextFloat() * (rightLimit - leftLimit + 1));
-            buffer.append((char) randomLimitedInt);
-        }
-        String generatedString = buffer.toString();
-
-        return generatedString;
-    }
-
-    private int createEntityInn() {
-        return new Random().nextInt();
-    }
-
-    private int createEntityOgrn() {
-        return new Random().nextInt();
-    }
-}*/

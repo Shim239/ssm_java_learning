@@ -5,6 +5,7 @@ package Lesson5;
 public class Entity extends Customer {
     private String ogrn;
     private String name;
+    private String inn;
 
     public String getOgrn() {
         return ogrn;
@@ -22,17 +23,20 @@ public class Entity extends Customer {
         this.name = name;
     }
 
-    public Entity(int id, String name, String inn, String ogrn) {
-        super(id, inn);
-        this.ogrn = ogrn;
-        this.name = name;
+    public String getInn() {
+        return inn;
+    }
+
+    public void setInn(String inn) {
+        this.inn = inn;
     }
 
     @Override
     public String toString() {
-        return "Entity{" +
-                "ogrn='" + ogrn + '\'' +
-                ", name='" + name + '\'' +
-                '}';
+        return "Клиент ЮЛ: " +
+                "id=" + getId() + '\'' +
+                ", НАИМЕНОВАНИЕ='" + name + '\'' +
+                ", ИНН='" + inn + '\'' +
+                "ОГРН='" + ogrn + '\'';
     }
 }

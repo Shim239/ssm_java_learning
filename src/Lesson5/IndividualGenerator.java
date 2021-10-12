@@ -4,44 +4,34 @@ import java.util.Random;
 
 public class IndividualGenerator implements CustomerGenerator {
 
-    Customer[] customersIndividual = null;
-
-    public void createIndividualArray(int individualCount) {
-        customersIndividual = new Customer[individualCount];
-
-        for (int i = 0; i < individualCount; i++) {
-            customersIndividual[i] = generateCustomer(i);
-        }
+    // блок генерации клиентов по данным
+    @Override
+    public Customer generateCustomer() {
+        Individual individual = new Individual();
+        individual.setId(createIndId());
+        individual.setFio(createIndFio());
+        individual.setInn(createIndInn());
+        individual.setBirthYear(createIndBirthYear());
+        individual.setGender(CustomerGender.createIndGender());
+        return individual;
     }
 
-    @Override
-    public Customer generateCustomer(int id) {
-        String fio = createIndFio();
-        String inn = createIndInn();
-        int birthYear = createIndBirthYear();
-        String gender = createIndGender();
-        return new Individual(id, fio, inn, birthYear, gender);
+    // блок генерации данных
+    public int createIndId() {
+        Random random = new Random();
+        return Math.abs(random.nextInt());
     }
 
     public String createIndFio() {
-        int leftLimit = 97; // letter 'a'
-        int rightLimit = 122; // letter 'z'
-        int targetStringLength = 10;
         Random random = new Random();
-        StringBuilder buffer = new StringBuilder(targetStringLength);
-        for (int i = 0; i < targetStringLength; i++) {
-            int randomLimitedInt = leftLimit + (int)
-                    (random.nextFloat() * (rightLimit - leftLimit + 1));
-            buffer.append((char) randomLimitedInt);
-        }
-        String generatedString = buffer.toString();
-        return generatedString;
+        int num = random.nextInt((500 - 1) + 1) + 1;
+        return "Casual Customer " + num;
     }
 
     public String createIndInn() {
-        int leftLimit = 0; // number '0'
-        int rightLimit = 9; // number '9'
-        int targetStringLength = 10;
+        int leftLimit = 48; // number '0'
+        int rightLimit = 57; // number '9'
+        int targetStringLength = 12;
         Random random = new Random();
         StringBuilder buffer = new StringBuilder(targetStringLength);
         for (int i = 0; i < targetStringLength; i++) {
@@ -54,53 +44,8 @@ public class IndividualGenerator implements CustomerGenerator {
     }
 
     public int createIndBirthYear() {
-        return new Random().nextInt(2007);
-    }
-
-    public String createIndGender() {
-        String gender;
-        if(Math.random() > 0.5) gender  = "MALE";
-        else gender = "FEMALE";
-        return gender;
+        Random random = new Random();
+        int BirthYear = random.nextInt((2007 - 1920) + 1) + 1920;
+        return BirthYear;
     }
 }
-
-/*    private int createIndId() {
-        return new Random().nextInt();
-    }
-
-    private String createIndFio() {
-        int leftLimit = 97; // letter 'a'
-        int rightLimit = 122; // letter 'z'
-        int targetStringLength = 14;
-        Random random = new Random();
-        StringBuilder buffer = new StringBuilder(targetStringLength);
-        for (int i = 0; i < targetStringLength; i++) {
-            int randomLimitedInt = leftLimit + (int)
-                    (random.nextFloat() * (rightLimit - leftLimit + 1));
-            buffer.append((char) randomLimitedInt);
-        }
-        String generatedString = buffer.toString();
-
-        return generatedString;
-    }
-
-    private int createIndInn() {
-        return new Random().nextInt();
-    }
-
-    private int createIndBirthYear() {
-        int min = 1935;
-        int max = 2007;
-        int diff = max - min;
-        Random random = new Random();
-        int i = random.nextInt(diff + 1);
-        i += min;
-        return i;
-    }
-
-    private String createIndGender() {
-        String[] gender = new String[]{"m", "f"};
-        return gender[new Random().nextInt(1)];
-    }*/
-
