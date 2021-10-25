@@ -29,7 +29,7 @@ public class Main {
 
         // играемся с массивом типа String
         System.out.println("играемся с массивом типа String:");
-        GenericList<String> list = new GenericList();
+        GenericList<String> list = new GenericList<>();
         list.add("Нулевой");
         list.add("Первый");
         list.add("Второй");
@@ -43,7 +43,7 @@ public class Main {
 
         // играемся с массивом типа Integer
         System.out.println("играемся с массивом типа Integer:");
-        GenericList<Integer> list1 = new GenericList();
+        GenericList<Integer> list1 = new GenericList<>();
         list1.add(4);
         list1.add(3);
         list1.add(2);
@@ -54,13 +54,13 @@ public class Main {
         list1.remove(0);
         list1.remove(4);
         System.out.println(list1);
-        list1.output(0);
+        list1.output (0);
 
         System.out.println();
 
         // делаем большой массив (могут сформироваться одинаковые значения, тогда ошибка)
         System.out.println("делаем большой массив (могут сформироваться одинаковые значения, тогда ошибка):");
-        GenericList<Integer> qwerty = new GenericList();
+        GenericList<Integer> qwerty = new GenericList<>();
         for (int i = 0; i < 30; i++) {
             Random random = new Random();
             qwerty.add(random.nextInt((20000-100) + 1) + 100);
@@ -88,20 +88,22 @@ public class Main {
         clientList.add(clientGenerator.generateClient());
 
         for (int i = 0; i < clientList.size(); i++) {
-            System.out.println("Client № " +  clientList.getIndex(i) + ": " + " " + clientList.output(i));
+            System.out.println("Client № " +  clientList.getIndex(i) + ": " + " " + clientList.get(i));
         }
 
         clientList.add(clientGenerator.generateClient());
         clientList.remove(0);
         System.out.println();
-        clientList.output(0);
+
 
         System.out.println();
         System.out.println("После небольшой обработки:");
 
         for (int i = 0; i < clientList.size(); i++) {
-            System.out.println("Client № " +  clientList.getIndex(i) + ": " + " " + clientList.output(i));
+            System.out.println("Client № " +  clientList.getIndex(i) + ": " + " " + clientList.get(i));
         }
+        System.out.println();
+        clientList.output(0);
 
     }
 }

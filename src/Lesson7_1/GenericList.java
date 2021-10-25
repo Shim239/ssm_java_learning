@@ -52,6 +52,12 @@ public class GenericList<T> {
     }
 
     // метод вывода в консоль элемента по номеру его индекса
+    public T get(int index) {
+        checkArrayIndex(index);
+        return (T) array[index];
+    }
+
+    // метод вывода в консоль элемента по номеру его индекса
     public T output(int index) {
         try {
             checkArrayIndex(index);
