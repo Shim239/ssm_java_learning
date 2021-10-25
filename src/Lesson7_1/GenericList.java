@@ -13,11 +13,11 @@ public class GenericList<T> {
         return size;
     }
 
+    // метод для вывода длины массива в консоль
     public int getSize() {
         System.out.println("В списке находится " + size + " элемента(-ов).");
         return size;
     }
-
 
     // метод получения индекса элемента массива
     public int getIndex(int index) {
@@ -55,7 +55,7 @@ public class GenericList<T> {
     public T output(int index) {
         try {
             checkArrayIndex(index);
-            System.out.println("Элемент списка № " + (index + 1) + ": " + array[index]);
+            System.out.println("Элемент списка № " + index + ": " + array[index]);
         }
         catch (IndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
@@ -65,7 +65,7 @@ public class GenericList<T> {
         return (T) array[index];
     }
 
-    // метод удаления элемента по его индексу (АВТОРСКИЙ)
+    // метод удаления элемента по его индексу
     public void remove(int index) {
         int removedIndex = index;
         if (array == null || removedIndex < 0 || removedIndex >= array.length) {

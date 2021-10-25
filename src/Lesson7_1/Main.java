@@ -73,6 +73,7 @@ public class Main {
         System.out.println(qwerty);
         qwerty.output(0);
         qwerty.output(6);
+        qwerty.getSize();
 
         System.out.println("\n\n");
 
@@ -92,9 +93,11 @@ public class Main {
 
         clientList.add(clientGenerator.generateClient());
         clientList.remove(0);
-        //clientList.output(0);
+        System.out.println();
+        clientList.output(0);
 
-        System.out.println("\n");
+        System.out.println();
+        System.out.println("После небольшой обработки:");
 
         for (int i = 0; i < clientList.size(); i++) {
             System.out.println("Client № " +  clientList.getIndex(i) + ": " + " " + clientList.output(i));

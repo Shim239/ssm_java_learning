@@ -20,7 +20,7 @@ public class ClientGenerator implements ClientGeneration{
     public String createClientFio() {
         Random random = new Random();
         int num = random.nextInt((500 - 1) + 1) + 1;
-        return "Casual Customer " + num;
+        return "Customer " + num;
     }
 
 }
