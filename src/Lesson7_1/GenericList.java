@@ -8,12 +8,12 @@ public class GenericList<T> {
     private int size;
     private Object[] array = new Object[size];
 
-    // метод, возвращаемый длину массива
+    // метод, возвращаемый длину списка
     public int size() {
         return size;
     }
 
-    // метод добавления элемента
+    // метод добавления элемента (если элемент уже присутствует - то он не добавляется)
     public void add(T value) {
         for (int i = 0; i < size; i++) {
             if (value.equals(array[i])) {
@@ -42,13 +42,13 @@ public class GenericList<T> {
 
     }
 
-    // метод вывода в консоль элемента по номеру его индекса
+    // метод выбора элемента по индексу
     public T get(int index) {
         checkArrayIndex(index);
         return (T) array[index];
     }
 
-    // метод удаления элемента по его индексу
+    // метод удаления элемента по индексу
     public void remove(int index) {
         int removedIndex = index;
         if (array == null || removedIndex < 0 || removedIndex >= array.length) {
