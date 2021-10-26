@@ -13,30 +13,21 @@ public class GenericList<T> {
         return size;
     }
 
-    // метод для вывода длины массива в консоль
-    public int getSize() {
-        System.out.println("В списке находится " + size + " элемента(-ов).");
-        return size;
-    }
-
-    // метод получения индекса элемента массива
-    public int getIndex(int index) {
-        return index;
-    }
-
     // метод добавления элемента
     public void add(T value) {
+        for (int i = 0; i < size; i++) {
+            if (value.equals(array[i])) {
+                return;
+            }
+        }
         size++;
         if (array.length < size) {
             array = Arrays.copyOf(array, size + 1);
         }
-        for (int i = 0; i < size; i++) {
-            if (value.equals(array[i])) {
-                throw new IllegalArgumentException("Exception! This value is already exists in this list!");
-            }
-        }
+
         array[size - 1] = value;
     }
+
 
     // метод замены элемента по индексу
     public void set(int index, T value) {
@@ -54,20 +45,6 @@ public class GenericList<T> {
     // метод вывода в консоль элемента по номеру его индекса
     public T get(int index) {
         checkArrayIndex(index);
-        return (T) array[index];
-    }
-
-    // метод вывода в консоль элемента по номеру его индекса
-    public T output(int index) {
-        try {
-            checkArrayIndex(index);
-            System.out.println("Элемент списка № " + index + ": " + array[index]);
-        }
-        catch (IndexOutOfBoundsException e) {
-            System.out.println(e.getMessage());
-            System.out.println("You are trying to " +
-                    "output in console an item with an index: " + index + "\n\n");
-        }
         return (T) array[index];
     }
 
