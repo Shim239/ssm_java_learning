@@ -8,7 +8,7 @@
 удалять объект по индексу
 получать количество элементов в коллекции
 
-ver 1.1
+ver 1.2
 on 26.10.2021
 by SmirnovSM
 
@@ -20,6 +20,14 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
+
+        GenericList<Integer> ooo = new GenericList<>();
+        ooo.add(1);
+        ooo.add(2);
+        ooo.add(3);
+        ooo.remove(0);
+        System.out.println(ooo);
+
 
         // играемся с массивом типа String
         System.out.println("играемся со списком типа String:");

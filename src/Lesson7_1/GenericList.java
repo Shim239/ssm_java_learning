@@ -5,7 +5,7 @@ package Lesson7_1;
 import java.util.Arrays;
 
 public class GenericList<T> {
-    private int size;
+    private int size = 0;
     private Object[] array = new Object[size];
 
     // метод, возвращаемый длину списка
@@ -15,6 +15,22 @@ public class GenericList<T> {
 
     // метод добавления элемента (если элемент уже присутствует - то он не добавляется)
     public void add(T value) {
+        for (int i = 0; i < array.length; i++) {
+            if (value.equals((T)array[i])) {
+                return;
+            }
+        }
+        size++;
+        if (array.length < size) {
+            Object[] newArray = new Object[array.length + 1];
+            System.arraycopy(array, 0, newArray, 0, size-1);
+            array = newArray;
+        }
+        array[size-1] = value;
+
+    }
+
+/*    public void add(T value) {
         for (int i = 0; i < size; i++) {
             if (value.equals(array[i])) {
                 return;
@@ -22,11 +38,12 @@ public class GenericList<T> {
         }
         size++;
         if (array.length < size) {
+            Object[] newArray = new Object[array.length + 1];
             array = Arrays.copyOf(array, size + 1);
         }
 
         array[size - 1] = value;
-    }
+    }*/
 
 
     // метод замены элемента по индексу
