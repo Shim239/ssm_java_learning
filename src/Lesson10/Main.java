@@ -12,6 +12,10 @@ Source - файл источник
 Количество файлов с логами в директории заранее не известно, предусмотреть, что логи могут лежать в поддиректориях.
 Когда механизм готов, нужно считать логи из приложенных файлов, отфильтровать только записи с уровнем WARN, и вывести все записи с уникальным сообщением
 
+ver 1.0
+on 22.11.2021
+by Smirnov SM
+
  */
 
 package Lesson10;
@@ -34,7 +38,7 @@ public class Main {
                 (new File(String.valueOf(path)), new String[] {"log"}, true);
 
         // количество файлов log
-        System.out.println("Number of LOG files: " + files.size());
+        System.out.println("Number of LOG files found: " + files.size());
         System.out.println();
 
         // вывод всех найденных файлов log
@@ -45,6 +49,7 @@ public class Main {
             // добавляем строки файлов log в список lines
             List<String> lines = org.apache.commons.io.FileUtils.readLines(new File(String.valueOf(file)));
 
+            // парсинг файла
             for (String line : lines) {
                 String timestamp = line.substring(0, 23);
 
@@ -59,36 +64,24 @@ public class Main {
                 int messageLastIndex = line.length();
                 String message = line.substring(messageFirstIndex + 2, messageLastIndex);
 
-                //String source = file.toString();
+                int sourceFirstIndex = file.toString().lastIndexOf('\\');
+                String source = file.toString().substring(sourceFirstIndex + 1);
 
                 if (level.equals("WARN")) {
-                    logObjects.add(new LogObject(timestamp, level, logger, message));
+                    logObjects.add(new LogObject(timestamp, level, logger, message, source));
 
                 }
 
-                Map<String, LogObject> map = logObjects.stream().collect(Collectors.toMap(
-                        LogObject::getMessage,
-                        Function.identity(),
-                        (logObjects1, logObjects2) -> logObjects1));
-
-
-
-                // вывод результатов
-                //map.values().forEach(System.out::println);
-
-
-
             }
-            logObjects.stream().map(LogObject::getMessage).forEach(System.out::println);
 
-/*
-            // вывод строк с level=WARN
-            for (int i = 0; i < logObjects.size(); i++) {
-                System.out.print(logObjects.get(i));
+            // делаем map, где ключ - message, а value - вся строка
+            Map<String, LogObject> map = logObjects.stream().collect(Collectors.toMap(
+                    LogObject::getMessage,
+                    Function.identity(),
+                    (logObjects1, logObjects2) -> logObjects1));
+            map.values().forEach(System.out::println);
 
-            }
-*/
-
+            // пустая строка между файлами для вывода
             System.out.println();
 
         }

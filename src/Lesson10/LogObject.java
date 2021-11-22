@@ -12,14 +12,14 @@ public class LogObject {
     private String level;
     private String logger;
     private String message;
-    //private String source;
+    private String source;
 
-    public LogObject(String timestamp, String level, String logger, String message) {
+    public LogObject(String timestamp, String level, String logger, String message, String source) {
         this.timeStamp = timestamp;
         this.level = level;
         this.logger = logger;
         this.message = message;
-        //this.source = source;
+        this.source = source;
     }
 
     public String getTimeStamp() {
@@ -54,13 +54,13 @@ public class LogObject {
         this.message = message;
     }
 
-/*    public String getSource() {
+    public String getSource() {
         return source;
     }
 
     public void setSource(String source) {
         this.source = source;
-    }*/
+    }
 
     public static void print(LogObject[] logObjects) {
         for (int i = 0; i < logObjects.length; i++) {
@@ -73,8 +73,8 @@ public class LogObject {
         return "timeStamp=" + timeStamp +
                 "; level=" + level +
                 "; logger=" + logger +
-                "; message=" + message +  ";"; //+ "\n";
-                //", source='" + source +  ";" + "\n";
+                "; message=" + message +
+                ", source='" + source +  ";";
     }
 
 
