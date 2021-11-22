@@ -62,12 +62,6 @@ public class LogObject {
         this.source = source;
     }
 
-    public static void print(LogObject[] logObjects) {
-        for (int i = 0; i < logObjects.length; i++) {
-            System.out.println(logObjects[i].toString());
-        }
-    }
-
     @Override
     public String toString() {
         return "timeStamp=" + timeStamp +
