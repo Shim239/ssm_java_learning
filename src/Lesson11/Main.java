@@ -39,7 +39,7 @@ public class Main {
 
         for (File file : searchFiles.files) {
             Runnable task = () -> {
-                synchronized (mutex) {
+            //    synchronized (mutex) {
 
                     ArrayList<LogObject> logObjects = new ArrayList<>();
                     System.out.println(Thread.currentThread().getName() + " add " + file); // выводим наименование файла, из которого выводятся логи
@@ -76,17 +76,19 @@ public class Main {
                         }
                     }
 
-                    // делаем map, где ключ - message, а value - вся строка
-                    Map<String, LogObject> map = logObjects.stream().collect(Collectors.toMap(
-                            LogObject::getMessage,
-                            Function.identity(),
-                            (logObjects1, logObjects2) -> logObjects1));
-                    map.values().forEach(System.out::println);
+                    synchronized (mutex) {
+                        // делаем map, где ключ - message, а value - вся строка
+                        Map<String, LogObject> map = logObjects.stream().collect(Collectors.toMap(
+                                LogObject::getMessage,
+                                Function.identity(),
+                                (logObjects1, logObjects2) -> logObjects1));
+                        map.values().forEach(System.out::println);
 
-                    // пустая строка между файлами для вывода
-                    System.out.println();
+                        // пустая строка между файлами для вывода
+                        System.out.println();
 
-                }
+                    }
+            //    }
             };
 
             //for (int i = 0; i < searchFiles.files.size(); i++) {
