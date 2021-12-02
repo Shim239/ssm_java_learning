@@ -15,7 +15,7 @@ Source - файл источник
 Каждый новый файл должен читаться новым потоком
 
 ver 1.0
-on 01.12.2021
+on 02.12.2021
 by Smirnov SM
 
  */
@@ -35,10 +35,9 @@ public class Main {
         SearchFiles searchFiles = new SearchFiles();
         System.out.println("Number of LOG files found: " + searchFiles.files.size() + '\n');
 
-        Runnable task = () -> {
+        for (File file : searchFiles.files) {
+            Runnable task = () -> {
 
-            // вывод всех найденных файлов log
-            for (File file : searchFiles.files) {
                 ArrayList<LogObject> logObjects = new ArrayList<>();
                 System.out.println(Thread.currentThread().getName() + " add " + file); // выводим наименование файла, из которого выводятся логи
 
@@ -84,13 +83,14 @@ public class Main {
                 // пустая строка между файлами для вывода
                 System.out.println();
 
-            }
-        };
+            };
 
-        for (int i = 0; i < searchFiles.files.size(); i++) {
-            Thread thread = new Thread(task);
-            thread.start();
-            thread.join();
+            //for (int i = 0; i < searchFiles.files.size(); i++) {
+                Thread thread = new Thread(task);
+                thread.start();
+                thread.join();
+            // }
+
         }
 
     }
