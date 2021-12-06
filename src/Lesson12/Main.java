@@ -60,8 +60,6 @@ public class Main {
         int pagesCount = objVspom.getTotalPages();
         // количество юзеров на одной странице
         int usersCountPerPage = objVspom.getPerPage();
-        System.out.println(pagesCount + "   " + usersCountPerPage);
-
 
         // формируем список Джорджей и список ID Джорджей
         List<DataItem> georgesList = new ArrayList<>();
